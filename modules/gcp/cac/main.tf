@@ -87,7 +87,6 @@ resource "google_compute_instance" "cac" {
   tags = var.network_tags
 
   metadata = {
-    ssh-keys = "${var.cac_admin_user}:${file(var.cac_admin_ssh_pub_key_file)}"
     startup-script-url = "gs://${var.bucket_name}/${google_storage_bucket_object.cac-provisioning-script[0].output_name}"
   }
 

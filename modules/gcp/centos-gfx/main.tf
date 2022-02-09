@@ -79,7 +79,6 @@ resource "google_compute_instance" "centos-gfx" {
   tags = var.network_tags
 
   metadata = {
-    ssh-keys = "${var.ws_admin_user}:${file(var.ws_admin_ssh_pub_key_file)}"
     startup-script-url = "gs://${var.bucket_name}/${google_storage_bucket_object.centos-gfx-provisioning-script[0].output_name}"
   }
 
