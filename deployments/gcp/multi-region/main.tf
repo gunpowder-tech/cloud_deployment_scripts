@@ -19,6 +19,7 @@ resource "google_storage_bucket" "scripts" {
   location      = var.gcp_region
   storage_class = "REGIONAL"
   force_destroy = true
+  uniform_bucket_level_access = true
 }
 
 module "dc" {
